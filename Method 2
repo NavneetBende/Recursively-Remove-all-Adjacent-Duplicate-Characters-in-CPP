@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+//Function to remove Duplicates
+string removeDuplicates(string str){
+
+   stack<char>stck;
+
+   for(int i=0; i< str.length(); i++){
+
+      if(stck.empty() or stck.top()!= str[i])
+        stck.push(str[i]);
+
+      else stck.pop();
+   }
+
+   if(stck.empty())
+     return "Empty String";
+
+    string result = "";
+
+    while(!stck.empty()){
+         result = stck.top()+result;
+         stck.pop();
+    }
+
+    return result;
+}
+
+
+//Driver Code
+int main(){
+    string str="aacbbcaaded";
+    cout<< removeDuplicates(str);
+}
